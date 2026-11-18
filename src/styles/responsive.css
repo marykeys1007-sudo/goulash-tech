@@ -76,41 +76,6 @@
   .kpis>div{padding:12px;border:1px solid var(--line);border-radius:9px;background:rgba(255,255,255,.025)}
   .kpis b{font-size:clamp(19px,6vw,24px)}
   .kpis span{font-size:11px;line-height:1.35}
-  .demo{padding:12px;margin-top:28px;border-radius:10px}
-  .demo__bar{margin-bottom:12px;font-size:10px;letter-spacing:.04em}
-  .demo__msg{font-size:12px;line-height:1.45;margin-bottom:12px}
-  .tabs{margin-bottom:12px}
-  .tab{min-height:38px;padding-inline:11px;font-size:12px}
-  .filters{gap:10px;margin-bottom:12px}
-  .filters .chips{flex-wrap:nowrap;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:4px;scrollbar-width:none}
-  .filters .chips::-webkit-scrollbar{display:none}
-  .chipb{flex:0 0 auto;height:32px;padding-inline:11px;font-size:12px}
-  .split,.split--map,.split--an{grid-template-columns:minmax(0,1fr);gap:12px}
-  .demo .list,.demo .maplist{
-    display:grid;
-    grid-auto-flow:column;
-    grid-auto-columns:min(82vw,330px);
-    grid-template-columns:none;
-    gap:10px;
-    max-height:none;
-    overflow-x:auto;
-    overflow-y:hidden;
-    padding:2px 2px 10px;
-    overscroll-behavior-x:contain;
-    scroll-snap-type:x mandatory;
-    scrollbar-width:none;
-  }
-  .demo .list::-webkit-scrollbar,.demo .maplist::-webkit-scrollbar{display:none}
-  .demo .req,.demo .mi{scroll-snap-align:start;min-width:0}
-  .detail{position:static;padding:14px}
-  .detail h3{font-size:17px}
-  .detail dl{gap:8px 12px;font-size:12.5px}
-  .masters{grid-template-columns:minmax(0,1fr);gap:10px}
-  .master{padding:13px;gap:8px}
-  .bars{height:150px;gap:6px}
-  .bars span{font-size:9px}
-  .dist>div{grid-template-columns:68px minmax(0,1fr) auto;gap:7px;font-size:12px}
-  .demo__body{min-height:0}
   .persona-carousel__viewport{touch-action:pan-y}
   .persona-carousel{touch-action:pan-y}
   .problems__grid{gap:12px}
