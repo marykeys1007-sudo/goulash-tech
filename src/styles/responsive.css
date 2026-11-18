@@ -362,16 +362,17 @@
     align-items:center;
     justify-content:center;
     align-self:flex-start;
+    height:46px;
     min-height:46px;
-    padding:0 17px;
-    border:1px solid rgba(0,255,255,.75);
-    border-radius:8px;
-    background:linear-gradient(135deg,#00ffff,#00bfc5);
-    color:#041112;
-    font-size:13px;
-    font-weight:800;
+    padding:0 22px;
+    border:1px solid var(--accent);
+    border-radius:7px;
+    background:var(--accent);
+    color:var(--accent-ink);
+    font-size:15px;
+    font-weight:600;
     letter-spacing:0;
-    box-shadow:0 5px 20px rgba(0,255,255,.17);
+    box-shadow:none;
   }
   .demo__bar #scn:active {transform:translateY(1px)}
   .demo__bar>span {width:100%;font-size:10px}
