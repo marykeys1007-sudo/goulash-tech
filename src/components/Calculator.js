@@ -14,6 +14,26 @@ export const Calculator = () => `
 </div></section>`;
 export function initCalc(){
   const g=k=>+document.getElementById('r-'+k).value, f=n=>n.toLocaleString('ru-RU'), set=(id,v)=>document.getElementById(id).textContent=v;
+  const heading = document.querySelector('#calculator .container > h2.h2');
+  if (heading && window.matchMedia('(max-width: 700px)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const finalText = heading.textContent.trim();
+    heading.textContent = '';
+    let index = 0;
+    const typeNext = () => {
+      if (index < finalText.length) {
+        heading.textContent += finalText[index++];
+        setTimeout(typeNext, 58);
+      }
+    };
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        typeNext();
+        observer.disconnect();
+      }
+    }, {threshold:0.5});
+    observer.observe(heading);
+  }
+
   const run=()=>{ const day=g('trips')*g('min')/60*calc.saving, mon=day*calc.days, rub=Math.round(mon*g('rate'));
     set('o-trips',f(g('trips')));set('o-min',f(g('min')));set('o-rate',f(g('rate')));
     set('c-day',day.toFixed(1).replace('.',','));set('c-mon',Math.round(mon));set('c-rub',f(rub).replace(/\u00a0/g,' '));
