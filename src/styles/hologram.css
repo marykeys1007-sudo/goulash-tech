@@ -1,0 +1,95 @@
+/* GOULASH.TECH — hologram scene */
+.hologram-section{position:relative;isolation:isolate;overflow:hidden;padding:clamp(36px,5vw,64px) 0 clamp(54px,7vw,86px);background:radial-gradient(ellipse at 50% 42%,rgba(0,255,255,.075),transparent 46%),linear-gradient(180deg,#05090d 0%,#020405 58%,#05090d 100%)}
+.hologram__grid{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.15;background-image:linear-gradient(rgba(0,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,255,.07) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(180deg,transparent,#000 18%,#000 82%,transparent)}
+.hologram__container{position:relative;max-width:1180px}
+.hologram__stage{position:relative;isolation:isolate;width:100%;height:clamp(430px,54vw,650px);margin:0 auto;overflow:hidden;background:radial-gradient(ellipse at 50% 52%,rgba(0,255,255,.105),transparent 42%);border:1px solid rgba(0,255,255,.12);border-radius:16px;box-shadow:inset 0 0 90px rgba(0,255,255,.025),0 24px 90px rgba(0,0,0,.22)}
+.hologram__image{position:absolute;z-index:1;left:50%;top:48%;height:96%;width:auto;max-width:94%;object-fit:contain;transform:translate(-50%,-50%);mix-blend-mode:screen;filter:drop-shadow(0 0 20px rgba(0,255,255,.24));transition:opacity .45s ease;pointer-events:none}
+.hologram__image--base{opacity:1}.hologram__image--smile{opacity:0}
+.hologram__canvas{position:absolute;z-index:3;inset:0;display:block;width:100%;height:100%;pointer-events:none;mix-blend-mode:screen}
+.hologram__scan{position:absolute;z-index:4;inset:0;pointer-events:none;opacity:.22;background:repeating-linear-gradient(180deg,transparent 0 3px,rgba(0,255,255,.14) 4px,transparent 5px);mix-blend-mode:screen;animation:holo-scan 7s linear infinite}
+.hologram__scan::after{content:"";position:absolute;left:0;right:0;top:-20%;height:18%;background:linear-gradient(180deg,transparent,rgba(0,255,255,.11),transparent);animation:holo-beam 5.5s linear infinite}
+.hologram__particles-glow{position:absolute;z-index:0;left:50%;top:52%;width:min(62%,620px);height:74%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(ellipse,rgba(0,255,255,.09),transparent 68%);filter:blur(24px);pointer-events:none}
+.hologram__floor{position:absolute;z-index:0;left:50%;bottom:-24%;width:min(76%,760px);height:42%;transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse,rgba(0,255,255,.16),rgba(0,255,255,.035) 42%,transparent 72%);filter:blur(17px)}
+.hologram__status,.hologram__coordinates{position:absolute;z-index:5;bottom:18px;color:rgba(142,255,255,.72);font:600 10px/1.5 var(--font);letter-spacing:.16em;text-transform:uppercase}
+.hologram__status{left:22px;display:flex;align-items:center;gap:9px}.hologram__status i{width:7px;height:7px;border-radius:50%;background:#00ffff;box-shadow:0 0 12px #00ffff;animation:holo-status 1.8s ease-in-out infinite}
+.hologram__coordinates{right:22px;text-align:right;color:rgba(142,255,255,.42)}
+.hologram__info{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:start;margin:clamp(30px,4vw,48px) auto 0;max-width:1080px}
+.hologram__info-main .eyebrow{color:#00dede}.hologram__info-main .h2{color:#f4ffff;font-size:clamp(26px,3.5vw,44px);letter-spacing:-.04em;line-height:1.06}.hologram__info-main .h2 span{color:#00e8e8;text-shadow:0 0 24px rgba(0,255,255,.2)}.hologram__info-main .lead{max-width:60ch;color:#b8c8cc}
+.hologram__info-points{display:grid;gap:0}.hologram__info-points article{display:grid;grid-template-columns:36px 1fr;column-gap:12px;padding:14px 0;border-bottom:1px solid rgba(0,255,255,.13)}.hologram__info-points article:first-child{padding-top:4px}.hologram__info-points article>span{grid-row:span 2;color:#00dede;font:700 11px/1.5 var(--font);letter-spacing:.1em}.hologram__info-points b{color:#efffff;font-size:14px}.hologram__info-points p{margin-top:4px;color:#9fb2b6;font-size:12.5px;line-height:1.55}
+.hologram__caption{margin:22px auto 0;text-align:center;color:#8faeb3;font:600 10px/1.6 var(--font);letter-spacing:.15em;text-transform:uppercase}
+.hologram-fallback .hologram__image--base{opacity:1!important}.hologram-fallback .hologram__canvas{display:none}
+@keyframes holo-status{50%{opacity:.35;box-shadow:0 0 3px #00ffff}}
+@keyframes holo-scan{to{background-position:0 100px}}
+@keyframes holo-beam{0%{transform:translateY(0)}100%{transform:translateY(700%)}}
+@media(max-width:700px){.hologram-section{padding:30px 0 52px}.hologram__stage{height:clamp(390px,112vw,520px);border-radius:11px}.hologram__image{height:94%;max-width:100%}.hologram__info{grid-template-columns:1fr;gap:22px;margin-top:28px}.hologram__info-main .h2{font-size:clamp(25px,7vw,34px)}.hologram__status{left:12px;bottom:12px;font-size:8px}.hologram__coordinates{right:12px;bottom:12px;font-size:8px}.hologram__caption{font-size:8px;letter-spacing:.09em}.hologram__info-points article{padding:12px 0}}
+@media(prefers-reduced-motion:reduce){.hologram__scan,.hologram__status i{animation:none}.hologram__canvas{display:none!important}.hologram__image--base{opacity:1!important}.hologram__image--smile{opacity:0!important}}
+
+
+/* Unified brand + hologram Bento composition */
+.hologram-section{padding:clamp(34px,4.5vw,62px) 0;background:radial-gradient(ellipse at 22% 24%,rgba(0,255,255,.07),transparent 38%),linear-gradient(180deg,#080d12 0%,#090e12 100%)}
+.hologram__container{max-width:1320px}
+.hologram-bento{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(330px,.82fr);grid-template-rows:minmax(390px,auto) auto auto;gap:14px}
+.hologram-bento__visual{grid-column:1;grid-row:1 / span 2;height:100%;min-height:540px;margin:0;border-radius:14px;background:radial-gradient(ellipse at 50% 48%,rgba(0,255,255,.12),transparent 48%),linear-gradient(145deg,#0b171b,#05090d)}
+.hologram-bento__visual .hologram__image{height:94%;top:49%}
+.hologram-bento__intro{grid-column:2;grid-row:1;padding:clamp(24px,3vw,42px);border:1px solid rgba(0,255,255,.17);border-radius:14px;background:linear-gradient(145deg,rgba(19,34,40,.95),rgba(9,17,22,.98));display:flex;flex-direction:column;justify-content:center}
+.hologram-bento__intro .eyebrow{color:#00dede}
+.hologram-bento__intro .h2{font-size:clamp(28px,3.2vw,43px);line-height:1.04;letter-spacing:-.04em;color:#f3fbfc}
+.hologram-bento__intro .h2 span{color:#00e8e8}
+.hologram-bento__intro .lead{color:#b8c8cc;font-size:15px;margin-top:18px}
+.hologram-bento__principle{margin-top:24px;padding:15px 17px;border-left:2px solid #00ffff;background:rgba(0,255,255,.045);display:grid;gap:8px}
+.hologram-bento__principle span,.hologram-bento__footer>span{font:700 10px/1.4 var(--font);letter-spacing:.14em;color:#00dede}
+.hologram-bento__principle b{font-size:15px;line-height:1.45;color:#f0fafa}
+.hologram-bento__industry{grid-row:2;grid-column:2;padding:23px 25px;border:1px solid rgba(255,255,255,.13);border-radius:12px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));display:flex;flex-direction:column;align-items:flex-start}
+.hologram-bento__industry--active{grid-row:3;grid-column:1 / 2;border-color:rgba(0,255,255,.4);background:linear-gradient(145deg,rgba(0,255,255,.08),rgba(255,255,255,.015))}
+.hologram-bento__industry .brand-principle__index{margin:0 0 16px}
+.hologram-bento__industry h3{font-size:21px;margin-bottom:8px;color:#f3fbfc}
+.hologram-bento__industry p{font-size:14px;line-height:1.55;color:#aebfc2;margin-bottom:16px}
+.hologram-bento__industry a,.hologram-bento__current{margin-top:auto;color:#00e8e8;font-size:12px;font-weight:650}
+.hologram-bento__current{border:1px solid rgba(0,255,255,.3);padding:7px 9px;border-radius:4px}
+.hologram-bento__footer{grid-column:2;grid-row:3;padding:20px 22px;border:1px solid rgba(0,255,255,.12);border-radius:12px;background:rgba(0,255,255,.035);display:flex;flex-direction:column;justify-content:center;gap:9px}
+.hologram-bento__footer p{font-size:13px;line-height:1.55;color:#aebfc2}
+.hologram__image--base{opacity:.22}
+.hologram__image--smile{opacity:.08}
+.hologram__canvas{z-index:3}
+@media(max-width:900px){
+ .hologram-bento{grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto}
+ .hologram-bento__visual{grid-column:1 / -1;grid-row:1;min-height:clamp(400px,70vw,560px)}
+ .hologram-bento__intro{grid-column:1 / -1;grid-row:2}
+ .hologram-bento__industry{grid-column:1;grid-row:3}
+ .hologram-bento__industry--active{grid-column:2;grid-row:3}
+ .hologram-bento__footer{grid-column:1 / -1;grid-row:4}
+}
+@media(max-width:600px){
+ .hologram-section{padding:26px 0 38px}
+ .hologram-bento{display:grid;grid-template-columns:1fr;gap:10px}
+ .hologram-bento__visual{grid-column:1;grid-row:1;min-height:390px;height:clamp(390px,112vw,500px)}
+ .hologram-bento__intro{grid-column:1;grid-row:2;padding:23px}
+ .hologram-bento__industry,.hologram-bento__industry--active{grid-column:1;grid-row:auto;padding:20px}
+ .hologram-bento__footer{grid-column:1;grid-row:auto}
+ .hologram__status{left:12px;bottom:12px;font-size:8px}
+ .hologram__coordinates{right:12px;bottom:12px;font-size:8px}
+}
+
+/* Keep a visible poster while the section is outside the viewport or Canvas is starting. */
+.hologram__image--base{opacity:.72}
+.hologram__image--smile{opacity:0}
+/* Hide source images only after the first particle frame was painted successfully. */
+.hologram-rendered .hologram__image--base,.hologram-rendered .hologram__image--smile{opacity:0!important}
+.hologram-fallback .hologram__image--base{opacity:1!important}
+.hologram-fallback .hologram__canvas{display:none!important}
+
+/* Stronger, clearly visible pixel-hologram rendering */
+.hologram__canvas{opacity:1!important;visibility:visible!important;image-rendering:pixelated;will-change:contents}
+.hologram-rendered .hologram__image--base,.hologram-rendered .hologram__image--smile{visibility:hidden!important}
+.hologram__stage:not(.hologram-rendered) .hologram__image--base{opacity:.72}
+
+
+/* Device-specific performance profile: preserve the same particle effect on mobile. */
+@media (max-width: 767px) {
+  .hologram__canvas { image-rendering: pixelated; }
+  .hologram__scan { animation-duration: 11s; opacity: .12; }
+  .hologram__particles-glow { opacity: .55; }
+}
+@media (min-width: 768px) {
+  .hologram__canvas { image-rendering: pixelated; }
+}
