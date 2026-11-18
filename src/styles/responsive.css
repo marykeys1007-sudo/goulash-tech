@@ -316,3 +316,195 @@
     scroll-behavior:auto;
   }
 }
+
+/* Mobile-only follow-up: prioritize feature modules and improve demo controls. */
+@media (max-width:700px) {
+  /* Replace the numbered process strip with the complete module cards below it. */
+  .section--system .system-flow {display:none!important}
+  .section--system .features-bento {margin-top:24px}
+  .section--system .features-bento>.bento-card {height:100%;min-height:190px}
+
+  /* Keep horizontally scrolling audience cards aligned to one shared height. */
+  .seg-cards {
+    display:flex;
+    flex-wrap:nowrap;
+    align-items:stretch;
+    gap:12px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    overscroll-behavior-x:contain;
+  }
+  .seg-cards>.card {
+    flex:0 0 min(84vw,340px);
+    display:flex;
+    flex-direction:column;
+    align-self:stretch;
+    height:auto;
+    min-height:100%;
+    box-sizing:border-box;
+  }
+  .seg-cards>.card>p.solve {margin-top:auto}
+  .seg-cards>.card>header {min-height:44px}
+  .seg-cards>.card>p.tags {min-height:2.8em}
+
+  /* Put the scenario action first, aligned left and clearly emphasized. */
+  .demo__bar {
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+    gap:12px;
+  }
+  .demo__bar #scn {
+    order:-1;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    align-self:flex-start;
+    min-height:46px;
+    padding:0 17px;
+    border:1px solid rgba(0,255,255,.75);
+    border-radius:8px;
+    background:linear-gradient(135deg,#00ffff,#00bfc5);
+    color:#041112;
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:0;
+    box-shadow:0 5px 20px rgba(0,255,255,.17);
+  }
+  .demo__bar #scn:active {transform:translateY(1px)}
+  .demo__bar>span {width:100%;font-size:10px}
+
+  /* Tabs must read as interactive controls, not plain text labels. */
+  .demo .tabs {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+    width:100%;
+    margin:0 0 14px;
+    padding:0;
+    overflow:visible;
+    -webkit-mask-image:none;
+    mask-image:none;
+  }
+  .demo .tab {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    width:100%;
+    min-width:0;
+    min-height:46px;
+    padding:9px 8px;
+    border:1px solid rgba(156,255,255,.28);
+    border-radius:9px;
+    background:rgba(255,255,255,.045);
+    color:#d4e3e5;
+    font-size:12px;
+    font-weight:650;
+    line-height:1.25;
+    white-space:normal;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+  }
+  .demo .tab.is-on {
+    border-color:rgba(0,255,255,.8);
+    background:rgba(0,255,255,.12);
+    color:#00ffff;
+    box-shadow:0 0 0 1px rgba(0,255,255,.08),0 5px 18px rgba(0,255,255,.08);
+  }
+  .demo .tab:active {transform:scale(.985)}
+  .demo .tab svg {flex:0 0 auto}
+
+  /* Request cards: horizontal snap track rather than a tall vertical list. */
+  .demo .split {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    min-width:0;
+  }
+  .demo .list {
+    display:flex;
+    flex-direction:row;
+    align-items:stretch;
+    gap:10px;
+    width:100%;
+    max-width:100%;
+    max-height:none;
+    min-height:0;
+    padding:2px 24px 12px 2px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:2px;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 28px),rgba(0,0,0,.16) 100%);
+    mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 28px),rgba(0,0,0,.16) 100%);
+  }
+  .demo .list::-webkit-scrollbar {display:none}
+  .demo .list>.req {
+    flex:0 0 min(82vw,310px);
+    width:min(82vw,310px);
+    min-width:0;
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+    scroll-snap-align:start;
+  }
+  .demo .req>p:last-of-type {margin-bottom:10px}
+  .demo .req .assign {margin-top:auto}
+  .demo .detail {width:100%;min-width:0}
+
+  /* Map specialist cards also become a horizontal strip below the map. */
+  .demo .split--map {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .demo .mapbox {width:100%;min-width:0}
+  .demo .maplist {
+    display:flex;
+    flex-direction:row;
+    align-items:stretch;
+    gap:9px;
+    width:100%;
+    max-width:100%;
+    max-height:none;
+    padding:2px 24px 12px 2px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:2px;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 28px),rgba(0,0,0,.16) 100%);
+    mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 28px),rgba(0,0,0,.16) 100%);
+  }
+  .demo .maplist::-webkit-scrollbar {display:none}
+  .demo .maplist>.mi {
+    flex:0 0 min(78vw,290px);
+    width:min(78vw,290px);
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:8px;
+    scroll-snap-align:start;
+  }
+  .demo .mi>div {display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+  .demo .mi b {min-width:0;line-height:1.35}
+
+  /* The analytics chart and distribution retain their original order and stack cleanly. */
+  .demo .split--an {display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+  .demo .chart,.demo .dist {width:100%;min-width:0}
+}
+
+@media (max-width:420px) {
+  .seg-cards>.card {flex-basis:86vw}
+  .demo .list>.req {flex-basis:84vw;width:84vw}
+  .demo .maplist>.mi {flex-basis:82vw;width:82vw}
+  .demo .tab {font-size:11px;gap:5px}
+}
