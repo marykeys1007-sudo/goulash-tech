@@ -537,3 +537,44 @@
   .header .header__cta {padding:0 8px;font-size:10px}
   .header .header__cta svg {display:none}
 }
+
+
+/* Mobile-only visual cleanup of the demo builder header. */
+@media (max-width:700px) {
+  .demo .demo__bar {
+    align-items:flex-start;
+    gap:9px;
+    margin:0 0 13px;
+    padding:0 0 12px;
+    border-bottom:1px solid var(--line);
+  }
+  .demo .demo__bar>span {
+    order:0;
+    display:block;
+    width:auto;
+    color:var(--muted);
+    font-size:10px;
+    line-height:1.3;
+    letter-spacing:.12em;
+  }
+  .demo .demo__bar>span .dot,
+  .demo .demo__bar>span .tag {display:none!important}
+  .demo .demo__bar>span b {
+    color:var(--muted);
+    font-size:10px;
+    font-weight:650;
+    letter-spacing:.12em;
+  }
+  .demo .demo__bar #scn {
+    order:1;
+    align-self:flex-start;
+    margin:0!important;
+    min-height:40px;
+    height:40px;
+    padding:0 16px;
+    border-radius:7px;
+    font-size:13px;
+    font-weight:600;
+    box-shadow:none;
+  }
+}
