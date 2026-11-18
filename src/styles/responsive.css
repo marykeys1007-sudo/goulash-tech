@@ -23,3 +23,110 @@
 .hologram__stage:not(.hologram-ready) .hologram__image--base{opacity:1!important}
 @media(max-width:700px){.hologram__canvas{display:block}}
 
+
+
+/* Mobile content density: preserve section order and all existing motion. */
+@media (max-width:700px){
+  .section{padding-block:clamp(42px,10vw,60px)}
+  .seg-cards{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:2px;
+    padding:2px 2px 12px;
+    margin-top:28px;
+    scrollbar-width:none;
+  }
+  .seg-cards::-webkit-scrollbar,.chips-row::-webkit-scrollbar,.cycle::-webkit-scrollbar{display:none}
+  .seg-cards>.card{flex:0 0 min(84vw,340px);min-width:0;min-height:0;padding:18px;scroll-snap-align:start}
+  .seg-cards .card header{gap:10px;margin-bottom:10px}
+  .seg-cards .card h3{font-size:18px}
+  .seg-cards .card>p{font-size:13.5px;line-height:1.5}
+  .seg-cards .solve{margin-top:14px;padding-top:12px;font-size:13px!important}
+  .chips-row{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x proximity;
+    margin:18px 0 28px;
+    padding-bottom:6px;
+    scrollbar-width:none;
+  }
+  .chips-row span{flex:0 0 auto;scroll-snap-align:start;font-size:12px;padding:6px 11px}
+  .cycle{
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:min(78vw,290px);
+    grid-template-columns:none;
+    gap:14px;
+    margin-top:30px;
+    padding:2px 2px 14px;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+  }
+  .cycle>li{padding:16px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025);scroll-snap-align:start}
+  .cycle__n{margin-bottom:14px}
+  .cycle h3{font-size:16px}
+  .cycle p{font-size:13.5px;line-height:1.5}
+  .kpis{gap:9px;margin-bottom:14px}
+  .kpis>div{padding:12px;border:1px solid var(--line);border-radius:9px;background:rgba(255,255,255,.025)}
+  .kpis b{font-size:clamp(19px,6vw,24px)}
+  .kpis span{font-size:11px;line-height:1.35}
+  .demo{padding:12px;margin-top:28px;border-radius:10px}
+  .demo__bar{margin-bottom:12px;font-size:10px;letter-spacing:.04em}
+  .demo__msg{font-size:12px;line-height:1.45;margin-bottom:12px}
+  .tabs{margin-bottom:12px}
+  .tab{min-height:38px;padding-inline:11px;font-size:12px}
+  .filters{gap:10px;margin-bottom:12px}
+  .filters .chips{flex-wrap:nowrap;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:4px;scrollbar-width:none}
+  .filters .chips::-webkit-scrollbar{display:none}
+  .chipb{flex:0 0 auto;height:32px;padding-inline:11px;font-size:12px}
+  .split,.split--map,.split--an{grid-template-columns:minmax(0,1fr);gap:12px}
+  .demo .list,.demo .maplist{
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:min(82vw,330px);
+    grid-template-columns:none;
+    gap:10px;
+    max-height:none;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding:2px 2px 10px;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+  }
+  .demo .list::-webkit-scrollbar,.demo .maplist::-webkit-scrollbar{display:none}
+  .demo .req,.demo .mi{scroll-snap-align:start;min-width:0}
+  .detail{position:static;padding:14px}
+  .detail h3{font-size:17px}
+  .detail dl{gap:8px 12px;font-size:12.5px}
+  .masters{grid-template-columns:minmax(0,1fr);gap:10px}
+  .master{padding:13px;gap:8px}
+  .bars{height:150px;gap:6px}
+  .bars span{font-size:9px}
+  .dist>div{grid-template-columns:68px minmax(0,1fr) auto;gap:7px;font-size:12px}
+  .demo__body{min-height:0}
+  .persona-carousel__viewport{touch-action:pan-y}
+  .persona-carousel{touch-action:pan-y}
+  .problems__grid{gap:12px}
+  .problem-card{padding:18px;min-height:0}
+  .problem-card__top h3{font-size:17px}
+  .problem-card__description,.problem-card__solution{font-size:13.5px;line-height:1.5}
+  .features-bento{gap:12px}
+  .features-bento>.bento-card{grid-column:span 1;min-height:0;padding:16px}
+  .bento-card__body h3{font-size:17px}
+  .bento-card__body p{font-size:13px;line-height:1.5}
+  .brand-principle__grid{gap:12px}
+  .brand-principle__item{padding:18px}
+}
+@media (max-width:420px){
+  .seg-cards>.card{flex-basis:86vw;padding:16px}
+  .cycle{grid-auto-columns:84vw}
+  .demo{padding:10px}
+  .demo__bar .tag{margin-left:4px}
+}
