@@ -43,4 +43,21 @@ export function initPersonaCarousel() {
     if (event.key === 'ArrowLeft') show(active - 1);
     if (event.key === 'ArrowRight') show(active + 1);
   });
+
+  // Swipe navigation for touch screens; vertical page scrolling remains native.
+  const viewport = root.querySelector('.persona-carousel__viewport');
+  let touchStartX = 0;
+  let touchStartY = 0;
+  viewport?.addEventListener('touchstart', event => {
+    const touch = event.changedTouches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+  }, { passive: true });
+  viewport?.addEventListener('touchend', event => {
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - touchStartX;
+    const deltaY = touch.clientY - touchStartY;
+    if (Math.abs(deltaX) < 45 || Math.abs(deltaX) < Math.abs(deltaY) * 1.2) return;
+    show(active + (deltaX < 0 ? 1 : -1));
+  }, { passive: true });
 }
