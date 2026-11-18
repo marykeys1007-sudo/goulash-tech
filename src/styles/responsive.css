@@ -578,3 +578,19 @@
     box-shadow:none;
   }
 }
+
+
+/* Mobile-only heading animation presentation. */
+@media (max-width:700px) {
+  #segments [data-mobile-scramble] span,
+  #calculator .container > h2.h2 {
+    display:inline-block;
+    min-height:1.08em;
+  }
+  #segments [data-mobile-scramble] span {will-change:contents}
+  #calculator .container > h2.h2 {min-height:1.08em}
+}
+@media (prefers-reduced-motion:reduce) {
+  #segments [data-mobile-scramble] span,
+  #calculator .container > h2.h2 {animation:none!important}
+}
