@@ -3,7 +3,7 @@ import { icon } from '../utils/icons.js';
 
 export const Segments = () => `
 <section class="section section--segments" id="segments"><div class="container">
-  <p class="eyebrow reveal">${s.eyebrow}</p><h2 class="h2 reveal">${s.title.join('<br>')}</h2><p class="lead reveal">${s.text}</p>
+  <p class="eyebrow reveal">${s.eyebrow}</p><h2 class="h2 reveal" data-mobile-scramble><span>${s.title[0]}</span><br><span>${s.title[1]}</span></h2><p class="lead reveal">${s.text}</p>
   <div class="grid-2 seg-cards">${s.items.map(([t,ic,tags,pain,fix],i)=>`<article class="card reveal" style="--d:${(i%2)*.1}s"><header>${icon(ic,22)}<h3>${t}</h3></header><p class="tags">${tags.join(' — ')}</p><p class="pain">${pain}</p><p class="solve">${icon('arrow',14)}<span>${fix}</span></p></article>`).join('')}</div>
   <div class="chips-row reveal">${s.chips.map(c=>`<span>${c}</span>`).join('')}</div>
   <div class="persona-carousel reveal" data-persona-carousel aria-label="Типичные пользователи Goulash">
@@ -20,6 +20,35 @@ export const Segments = () => `
 </div></section>`;
 
 export function initPersonaCarousel() {
+  // Decorative character-to-text reveal is intentionally mobile-only.
+  const scrambleHeading = document.querySelector('[data-mobile-scramble]');
+  if (scrambleHeading && window.matchMedia('(max-width: 700px)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const glyphs = '@*№?!%$#&';
+    const reveal = () => {
+      scrambleHeading.querySelectorAll('span').forEach(line => {
+        const finalText = line.textContent;
+        let frame = 0;
+        const total = 18;
+        const timer = setInterval(() => {
+          const progress = frame / total;
+          line.textContent = [...finalText].map((char, index) => {
+            if (char === ' ' || index < Math.floor(progress * finalText.length)) return char;
+            return glyphs[Math.floor(Math.random() * glyphs.length)];
+          }).join('');
+          frame++;
+          if (frame > total) { clearInterval(timer); line.textContent = finalText; }
+        }, 42);
+      });
+    };
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        reveal();
+        observer.disconnect();
+      }
+    }, {threshold:0.45});
+    observer.observe(scrambleHeading);
+  }
+
   const root = document.querySelector('[data-persona-carousel]');
   if (!root) return;
   const slides = [...root.querySelectorAll('[data-persona-slide]')];
