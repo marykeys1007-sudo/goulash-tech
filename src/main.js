@@ -6,7 +6,7 @@ import './styles/hologram.css';
 
 import { Header, initHeader } from './components/Header.js';
 import { Hero } from './components/Hero.js';
-import { VideoShowcase } from './components/VideoShowcase.js';
+import { VideoShowcase, initVideoShowcase } from './components/VideoShowcase.js';
 import { Problems, Features } from './components/Sections.js';
 import { DemoDashboard, initDemo } from './components/DemoDashboard.js';
 import { Segments, initPersonaCarousel } from './components/Segments.js';
@@ -41,6 +41,7 @@ document.getElementById('app').innerHTML = Header() + '<main>' + [
 ].map(component => component()).join('') + '</main>' + Footer();
 
 initHeader();
+initVideoShowcase();
 initDemo();
 initCalc();
 initFAQ();
