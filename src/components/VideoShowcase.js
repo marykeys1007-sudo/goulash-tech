@@ -1,4 +1,4 @@
-const VIDEO_SRC = '/videos/goulash-brand-film.mp4';
+const VIDEO_SRC = '/videos/demo-video.mp4';
 const VIDEO_POSTER = '/images/blog/dispatch-team.webp';
 
 export const VideoShowcase = () => `
